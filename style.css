@@ -1,0 +1,304 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #1d2b31;
+  background: #f6f8fb;
+}
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #dde5ea;
+  padding: 18px 20px;
+}
+
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f5c68;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: #33474f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: #0f5c68;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0f5c68, #2f8f83);
+  color: #ffffff;
+  padding: 84px 20px 72px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  gap: 30px;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 54px;
+  line-height: 1.1;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 0 28px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.hero-card {
+  width: 100%;
+  max-width: 620px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: left;
+}
+
+.hero-card h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.hero-card ul {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.button {
+  display: inline-block;
+  padding: 13px 20px;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #0f5c68;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.button:hover {
+  background: #eaf4f2;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 20px;
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  margin: 0 0 14px;
+  font-size: 32px;
+  color: #123f49;
+}
+
+.section-intro {
+  max-width: 760px;
+  margin: 0 0 28px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #52636a;
+}
+
+.mission {
+  background: #ffffff;
+  border: 1px solid #dde5ea;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  background: #ffffff;
+  border: 1px solid #dde5ea;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.service-card h3 {
+  margin: 0 0 10px;
+  color: #0f5c68;
+  font-size: 21px;
+}
+
+.service-card p {
+  margin: 0;
+  color: #52636a;
+  line-height: 1.6;
+}
+
+.contact-area {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.contact-note {
+  background: #e7f3f0;
+  border-radius: 8px;
+  padding: 24px;
+  line-height: 1.7;
+}
+
+.contact-details {
+  margin-top: 18px;
+}
+
+.contact-details p {
+  margin: 8px 0 0;
+}
+
+form {
+  background: #ffffff;
+  border: 1px solid #dde5ea;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #123f49;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b9c8ce;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid #bfe5dc;
+  border-color: #0f5c68;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #0f5c68;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0b4750;
+}
+
+footer {
+  background: #123f49;
+  color: #ffffff;
+  text-align: center;
+  padding: 22px 20px;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .hero-content,
+  .contact-area {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 16px;
+  }
+
+  .hero {
+    padding: 58px 16px 50px;
+  }
+
+  main {
+    padding: 42px 16px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .hero p,
+  .section-intro {
+    font-size: 16px;
+  }
+
+  .mission,
+  .service-card,
+  .contact-note,
+  form {
+    padding: 20px;
+  }
+}

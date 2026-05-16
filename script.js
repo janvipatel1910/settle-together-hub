@@ -72,8 +72,7 @@ async function sendSupportRequest(requestData) {
   const response = await fetch(googleAppsScriptURL, {
     method: "POST",
     headers: {
-      "Accept": "application/json",
-      "Content-Type": "text/plain;charset=utf-8"
+      "Content-Type": "application/json"
     },
     body: JSON.stringify(requestData)
   });
@@ -157,4 +156,5 @@ if (supportForm) {
     }
   });
 }
+
 // Future JavaScript for Settle Together Hub can be added here.

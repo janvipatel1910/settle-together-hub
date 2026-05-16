@@ -1,6 +1,6 @@
 const supportForm = document.querySelector("#support-form");
 const successMessage = document.querySelector("#success-message");
-const googleAppsScriptURL = "https://script.google.com/macros/s/AKfycbwkjl8vpYrfMP_Gqjza3sGzI5gD4LEj3QZHhAvSvE_epICmlgNgaVWg68jO1FsuRAvQ/exec";
+const googleAppsScriptURL = "https://script.google.com/macros/s/AKfycbwvWZTdjqpSHDMpEtKIln_nGKDD6V5skVpbPoiy7dwFm6CzVXvsS_Sfa7MeC5gZUrtm/exec";
 const radioGroups = ["accommodation-support", "job-support", "food-support"];
 
 function showError(field) {

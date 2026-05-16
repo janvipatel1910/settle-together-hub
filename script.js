@@ -69,23 +69,24 @@ function getFormData() {
 }
 
 async function sendSupportRequest(requestData) {
+  async function sendSupportRequest(requestData) {
+  const formData = new FormData();
+
+  Object.keys(requestData).forEach((key) => {
+    formData.append(key, requestData[key]);
+  });
+
   const response = await fetch(googleAppsScriptURL, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(requestData)
+    body: formData
   });
 
   if (!response.ok) {
     throw new Error("The form could not be submitted.");
   }
 
-  const responseText = await response.text();
-
-  if (!responseText) {
-    return null;
-  }
+  return response.text();
+}
 
   try {
     const responseData = JSON.parse(responseText);
@@ -156,5 +157,3 @@ if (supportForm) {
     }
   });
 }
-
-// Future JavaScript for Settle Together Hub can be added here.

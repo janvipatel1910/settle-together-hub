@@ -1,6 +1,4 @@
 const supportForm = document.querySelector("#support-form");
-const successMessage = document.querySelector("#success-message");
-const googleAppsScriptURL = "https://script.google.com/macros/s/AKfycbzd_F9Cj9vk7p3X7HLhYd5opTptiMiqkGgnNHotp5AIZ1p4qYojwoIlIZTebwbxldjw/exec;
 const radioGroups = ["accommodation-support", "job-support", "food-support"];
 
 function showError(field) {
@@ -63,85 +61,10 @@ function validateForm() {
   return formIsValid;
 }
 
-function getFormData() {
-  const formData = new FormData(supportForm);
-  return Object.fromEntries(formData.entries());
-}
-
-async function sendSupportRequest(requestData) {
-  async function sendSupportRequest(requestData) {
-  const formData = new FormData();
-
-  Object.keys(requestData).forEach((key) => {
-    formData.append(key, requestData[key]);
-  });
-
-  const response = await fetch(googleAppsScriptURL, {
-    method: "POST",
-    body: formData
-  });
-
-  if (!response.ok) {
-    throw new Error("The form could not be submitted.");
-  }
-
-  return response.text();
-}
-
-  try {
-    const responseData = JSON.parse(responseText);
-
-    if (responseData.success === false) {
-      throw new Error(responseData.message || "The form could not be submitted.");
-    }
-
-    return responseData;
-  } catch (error) {
-    if (error instanceof SyntaxError) {
-      return responseText;
-    }
-
-    throw error;
-  }
-}
-
-function showMessage(message, isError = false) {
-  successMessage.textContent = message;
-  successMessage.classList.toggle("error", isError);
-  successMessage.classList.add("show");
-}
-
-function hideMessage() {
-  successMessage.classList.remove("show", "error");
-}
-
 if (supportForm) {
-  supportForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    hideMessage();
-
-    if (validateForm()) {
-      const submitButton = supportForm.querySelector("button[type='submit']");
-      const originalButtonText = submitButton.textContent;
-      const requestData = getFormData();
-
-      submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
-
-      try {
-        await sendSupportRequest(requestData);
-        showMessage("Thank you. Your support request has been sent successfully.");
-        supportForm.reset();
-        supportForm.querySelectorAll("[aria-invalid]").forEach((field) => {
-          field.removeAttribute("aria-invalid");
-        });
-      } catch (error) {
-        console.error(error);
-        showMessage("Sorry, something went wrong. Please try again in a moment.", true);
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
-      }
+  supportForm.addEventListener("submit", (event) => {
+    if (!validateForm()) {
+      event.preventDefault();
     }
   });
 
